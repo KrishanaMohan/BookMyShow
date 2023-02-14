@@ -1,6 +1,7 @@
 package com.example.BookMyShow01.Models;
 
 import com.example.BookMyShow01.Enums.SeatType;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,6 +28,7 @@ public class TheaterSeatEntity {
 
     @ManyToOne
     @JoinColumn
+    @JsonBackReference
     private TheaterEntity theater;
 
     public TheaterSeatEntity(String seatNo,SeatType seatType,int rate){

@@ -68,7 +68,7 @@ public class ShowService {
 
         movieRepository.save(movieEntity);
         theaterRepository.save(theaterEntity);
-        //showRepository.save(showEntity); this doessnt need to be called bcz parent save function is being called.
+        showRepository.save(showEntity); //this doessnt need to be called bcz parent save function is being called.
 
         return "Show added successfully";
 
@@ -83,6 +83,7 @@ public class ShowService {
 
             ShowSeatEntity showSeat = ShowSeatEntity.builder().seatNo(theaterSeat.getSeatNo()).seatType(theaterSeat.getSeatType()).build();
             seats.add(showSeat);
+
         }
 
         showSeatRepository.saveAll(seats);

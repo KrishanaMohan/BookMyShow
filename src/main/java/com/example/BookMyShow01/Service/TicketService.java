@@ -15,10 +15,8 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 @Service
 public class TicketService {
-
     @Autowired
     ShowRepository showRepository;
 
@@ -48,7 +46,7 @@ public class TicketService {
 
             String seatNo = showSeat.getSeatNo();
 
-            if(showSeat.isBooked()==false&&requestedSeats.contains(seatNo)){
+            if(showSeat.isBooked()==false && requestedSeats.contains(seatNo)){
                 bookedSeats.add(showSeat);
             }
         }
@@ -101,6 +99,7 @@ public class TicketService {
 
         ticketRepository.save(ticketEntity);
 
-        return "Sucessfully created a ticket";
+
+        return "Successfully created a ticket";
     }
 }

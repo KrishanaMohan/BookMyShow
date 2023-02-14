@@ -1,5 +1,7 @@
 package com.example.BookMyShow01.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,6 +23,7 @@ public class TheaterEntity {
     private int id;
 
 
+    @Column(unique = true)
     private String name;
 
     private String city;
@@ -29,11 +32,13 @@ public class TheaterEntity {
 
     //List of shows
     @OneToMany(mappedBy = "theater",cascade = CascadeType.ALL)
+    @JsonBackReference
     List<ShowEntity> listOfShows;
 
 
     //List of theater seats
     @OneToMany(mappedBy = "theater", cascade = CascadeType.ALL)
+    @JsonBackReference
     List<TheaterSeatEntity> theaterSeatEntityList;
 
 

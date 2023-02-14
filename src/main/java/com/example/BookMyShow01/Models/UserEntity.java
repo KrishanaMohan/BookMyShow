@@ -1,5 +1,6 @@
 package com.example.BookMyShow01.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -39,5 +40,6 @@ public class UserEntity {
 
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    @JsonBackReference
     List<TicketEntity> listOfTickets;
 }

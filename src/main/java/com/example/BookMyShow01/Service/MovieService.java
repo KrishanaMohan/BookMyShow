@@ -6,6 +6,8 @@ import com.example.BookMyShow01.Repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MovieService {
 
@@ -21,6 +23,8 @@ public class MovieService {
 
         return "Movie Added successfully";
     }
-
-
+    public MovieEntity findByName(String name){
+        MovieEntity movie= movieRepository.findByMovieName(name);
+        return movie;
+    }
 }

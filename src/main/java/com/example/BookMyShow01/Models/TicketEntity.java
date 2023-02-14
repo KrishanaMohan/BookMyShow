@@ -1,5 +1,6 @@
 package com.example.BookMyShow01.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -24,13 +25,16 @@ public class TicketEntity {
     //Here you will connect
     @ManyToOne
     @JoinColumn
+    @JsonBackReference
     private UserEntity user; //
 
     @ManyToOne
     @JoinColumn
+    @JsonBackReference
     private ShowEntity show;
 
     @OneToMany(mappedBy = "ticket",cascade = CascadeType.ALL)
+    @JsonBackReference
     private List<ShowSeatEntity> bookedSeats;
 
 }

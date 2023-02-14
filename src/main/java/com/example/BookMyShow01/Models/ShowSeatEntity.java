@@ -1,6 +1,7 @@
 package com.example.BookMyShow01.Models;
 
 import com.example.BookMyShow01.Enums.SeatType;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,16 +26,17 @@ public class ShowSeatEntity {
 
     @Enumerated(value = EnumType.STRING)
     private SeatType seatType;
-
     private boolean booked;
 
     private Date bookedAt;
 
     @ManyToOne
     @JoinColumn
+    @JsonBackReference
     private ShowEntity show;
 
     @ManyToOne
     @JoinColumn
+    @JsonBackReference
     private TicketEntity ticket;
 }

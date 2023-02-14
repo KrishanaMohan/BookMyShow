@@ -21,4 +21,11 @@ public class UserService {
             userRepository.save(userEntity);
         return "User added sucessfully";
     }
+    public UserEntity findByName(String userName){
+        return userRepository.findByName(userName);
+    }
+
+    public UserEntity findById (Integer id){
+        return userRepository.findById(id).get();
+    }
 }

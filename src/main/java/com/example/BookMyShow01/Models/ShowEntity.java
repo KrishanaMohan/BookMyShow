@@ -1,5 +1,6 @@
 package com.example.BookMyShow01.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -40,19 +41,23 @@ public class ShowEntity {
 
     @ManyToOne
     @JoinColumn
+    @JsonBackReference
     private MovieEntity movie;
 
 
     @ManyToOne
     @JoinColumn
+    @JsonBackReference
     private TheaterEntity theater;
 
 
     @OneToMany(mappedBy = "show", cascade = CascadeType.ALL)
+    @JsonBackReference
     private List<ShowSeatEntity> listOfSeats;
 
 
     @OneToMany(mappedBy = "show",cascade = CascadeType.ALL)
+    @JsonBackReference
     private List<TicketEntity> listOfTickets;
 
 }

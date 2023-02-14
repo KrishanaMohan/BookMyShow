@@ -9,6 +9,7 @@ import com.example.BookMyShow01.Repository.TheaterRepository;
 import com.example.BookMyShow01.Repository.TheaterSeatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -94,6 +95,23 @@ public class TheaterService {
 
     }
 
+    public TheaterEntity findByTheaterNameAndCity( String name,String city ){
+        return theaterRepository.findByNameAndCity(name,city);
+    }
 
+    public TheaterEntity findByName(String theaterName){
 
+        return theaterRepository.findByName(theaterName);
+    }
+    public TheaterEntity findById( Integer theaterId){
+
+        TheaterEntity theater= theaterRepository.findById(theaterId).get();
+        return theater;
+
+    }
+
+    public List<TheaterEntity> findAllTheater(){
+        List<TheaterEntity> theaterEntityList= theaterRepository.findAll();
+        return  theaterEntityList;
+    }
 }

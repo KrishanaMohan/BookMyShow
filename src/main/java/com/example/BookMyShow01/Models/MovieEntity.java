@@ -3,6 +3,7 @@ package com.example.BookMyShow01.Models;
 
 
 //import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,6 +34,7 @@ public class MovieEntity {
     private Date releaseDate;
 
     @OneToMany(mappedBy = "movie",cascade = CascadeType.ALL)
+    @JsonBackReference
     private List<ShowEntity> listOfShows;
 
 
